@@ -1,0 +1,49 @@
+From 398ed48ae2e8dffefa2a3fbdb060f58b09fbca94 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Thu, 8 Aug 2024 19:12:22 +0800
+Subject: [PATCH] install
+
+---
+ DtkDemo.pro                                  | 6 +++---
+ spark-simple-remote-desktop-accessor.desktop | 4 ++--
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/DtkDemo.pro b/DtkDemo.pro
+index 286e7fe..64c9f82 100644
+--- a/DtkDemo.pro
++++ b/DtkDemo.pro
+@@ -33,14 +33,14 @@ HEADERS += \
+     mainwindow.h
+ 
+ VERSION = 1.0
+-BINDIR  = /opt/apps/spark-simple-remote-desktop-accessor/files/bin
++BINDIR  = $$PREFIX/bin
+ target.path = $$BINDIR
+ 
+ icon.files = spark-simple-remote-desktop-accessor.svg
+-icon.path = /opt/apps/spark-simple-remote-desktop-accessor/entries/icons/hicolor/scalable
++icon.path = $$PREFIX/share/icons/hicolor/scalable
+ 
+ desktop.files = spark-simple-remote-desktop-accessor.desktop
+-desktop.path = /opt/apps/spark-simple-remote-desktop-accessor/entries/applications/
++desktop.path = $$PREFIX/share/applications/
+ 
+ INSTALLS += target icon desktop
+ 
+diff --git a/spark-simple-remote-desktop-accessor.desktop b/spark-simple-remote-desktop-accessor.desktop
+index aeb3433..2124320 100644
+--- a/spark-simple-remote-desktop-accessor.desktop
++++ b/spark-simple-remote-desktop-accessor.desktop
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+ Categories=System
+-Exec=/opt/apps/spark-simple-remote-desktop-accessor/files/bin/simple-remote-desktop-accessor
+-Icon=/opt/apps/spark-simple-remote-desktop-accessor/entries/icons/hicolor/scalable/spark-simple-remote-desktop-accessor.svg
++Exec=simple-remote-desktop-accessor
++Icon=spark-simple-remote-desktop-accessor
+ Name=rdp 远程桌面连接工具
+ StartupNotify=true
+ Terminal=false
+-- 
+2.43.4
+

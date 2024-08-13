@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.simple-remote-desktop-accessor
+  name: simple-remote-desktop-accessor
+  version: 1.2.0.1
+  kind: app
+  description: |
+    这是一款使用 dtk 写的一个简易远程连接工具
+
+command:
+  - /opt/apps/io.github.simple-remote-desktop-accessor/files/bin/simple-remote-desktop-accessor
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/gfdgd-xi/simple-remote-desktop-accessor.git
+    version: master
+    commit: 9447eb1ae840222cc4d1d81ac2261ec63b547360
+
+build: |
+  cd /project/linglong/sources/simple-remote-desktop-accessor.git/
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make
+  make install
